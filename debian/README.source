@@ -1,0 +1,9 @@
+This is an old piece of software (legacy). However since we are dealing with
+medical data, a lot of data are still around since 10 years of archive
+(minimum) is required in most countries.
+
+One should not continue in using this format anymore, but instead should use
+DICOM. This library is provided in Debian for legacy apps that need to deals
+with this old format. It will be provided as a read-only library.
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 28 Oct 2013 16:29:59 +0100
