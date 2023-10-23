@@ -1,0 +1,5 @@
+# Homepage and SourceForge repository have vanished
+version=4
+
+opts=dversionmangle=s/.*/0.No-Site/;s/\+dfsg//g \
+  https://people.debian.org/~eriberto/ FakeWatchNoUpstreamSiteForThisPackage-(\d\S+)\.gz

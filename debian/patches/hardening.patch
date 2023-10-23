@@ -1,0 +1,38 @@
+Description: Fix issues with gcc hardening compilations flags
+Author: Mathieu Malaterre <malat@debian.org>
+Forwarded: no
+
+Index: Papyrus3/PapyError3.c
+===================================================================
+--- Papyrus3.orig/PapyError3.c	2013-10-28 16:57:00.000000000 +0100
++++ Papyrus3/PapyError3.c	2013-10-28 16:57:13.000000000 +0100
+@@ -168,7 +168,7 @@
+ #ifndef DLL
+     PapyShort	i, theMax, theNb = 0;
+ 
+-    fprintf (stderr, sPapyErrorDecoP);
++    fprintf (stderr, "%s", sPapyErrorDecoP);
+     if (sCrtErrLevel >= 0)
+     {
+ 	fprintf (stderr, "%s\n", sERRMSG);
+@@ -202,7 +202,7 @@
+     else
+ 	fprintf (stderr, "No e%s\n", &sERRMSG [1]);
+ 	
+-    fprintf (stderr, sPapyErrorDecoP);
++    fprintf (stderr, "%s", sPapyErrorDecoP);
+ #endif
+     
+ } /* endof PapyPrintErrMsg3 */
+Index: Papyrus3/TESTS/TestRead.c
+===================================================================
+--- Papyrus3.orig/TESTS/TestRead.c	2013-10-28 16:57:00.000000000 +0100
++++ Papyrus3/TESTS/TestRead.c	2013-10-28 16:57:13.000000000 +0100
+@@ -53,6 +53,7 @@
+ #define MAIN
+ 
+ #include <stdio.h>
++#include <stdlib.h> /* exit */
+ #include "Papyrus3.h"
+ 
+ 

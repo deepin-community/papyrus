@@ -1,0 +1,30 @@
+Description: Remove register keyword
+ This will remove warning from client code:
+ /usr/include/Papyrus3/PapyWild3.h:80:41: warning: ISO C++17 does not allow ‘register’ storage class specifier [-Wregister]
+    80 | extern char     *wildname(register char *);
+       |                                         ^
+Author: Mathieu Malaterre <malat@debian.org>
+Last-Update: 2022-09-02
+
+--- papyrus-3.7.1+dfsg.orig/PapyWild3.c
++++ papyrus-3.7.1+dfsg/PapyWild3.c
+@@ -77,7 +77,7 @@
+ /********************************************************************************/
+ 
+ char *
+-wildname (register char *inNameP)
++wildname (char *inNameP)
+ {
+   register int	i;
+   static char	theSaved [15];
+--- papyrus-3.7.1+dfsg.orig/PapyWild3.h
++++ papyrus-3.7.1+dfsg/PapyWild3.h
+@@ -77,7 +77,7 @@ extern void	wildcexit();
+ extern void	wildrexit();
+ extern void	tameexit();
+ #else
+-extern char	*wildname(register char *);
++extern char	*wildname(char *);
+ extern void	wild3(char *,char *);
+ 
+ extern void	wild2exit(char *, char *);

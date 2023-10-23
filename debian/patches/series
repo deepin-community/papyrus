@@ -1,0 +1,6 @@
+fixmakefiles.patch
+fixcase.patch
+hardening.patch
+addcmake.patch
+fixcomment.patch
+register.patch

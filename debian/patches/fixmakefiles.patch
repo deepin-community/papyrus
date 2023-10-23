@@ -1,0 +1,47 @@
+Description: Fix issues with default Makefile build system
+Author: Mathieu Malaterre <malat@debian.org>
+Forwarded: no
+
+Index: Papyrus3/Makefile.PC
+===================================================================
+--- Papyrus3.orig/Makefile.PC	2013-10-28 16:57:02.000000000 +0100
++++ Papyrus3/Makefile.PC	2013-10-28 16:57:05.000000000 +0100
+@@ -5,6 +5,7 @@
+ MANDIR=		$(DSTDIR)/man
+ JPEGDIRLL=	JpegDir/JpgLless
+ JPEGDIRLY=	JpegDir/JpgLossy
++DICOMDIR=	DicomDir
+ MAYODIR=	Mayo
+ BINDIR=		$(DSTDIR)/test
+ LIBDIR=		$(DSTDIR)/$(ARCH)/lib
+@@ -12,7 +13,7 @@
+ INCPAPYRUS2DIR= ../Papyrus2
+ LIBPAPYRUS2DIR= ../Papyrus2/$(ARCH)/lib
+ 
+-CPPFLAGS=	-I. -I../.. -I$(INCPAPYRUS2DIR) -I$(JPEGDIRLL) -I$(JPEGDIRLY) -D_NO_LONGLONG
++CPPFLAGS=	-I. -I../.. -I$(DICOMDIR) -I$(JPEGDIRLL) -I$(JPEGDIRLY) -D_NO_LONGLONG
+ CFLAGS=		-g
+ LINTFLAGS=	-hb
+ 
+Index: Papyrus3/Makefile
+===================================================================
+--- Papyrus3.orig/Makefile	2013-10-28 16:57:02.000000000 +0100
++++ Papyrus3/Makefile	2013-10-28 16:57:05.000000000 +0100
+@@ -13,7 +13,7 @@
+ 
+ INSTALLDIR=	/home/Dorad/dorad/bin
+ 
+-CPPFLAGS=	-I. -I../.. -I$(DICOMDIR) -I$(JPEGDIRLL) -I$(JPEGDIRLY) -D_NO_LONGLONG -DSolaris
++CPPFLAGS=	-I. -I../.. -I$(DICOMDIR) -I$(JPEGDIRLL) -I$(JPEGDIRLY) -D_NO_LONGLONG -DSolaris -DHAVE_BOOLEAN
+ CFLAGS=		-g
+ LINTFLAGS=	-hb
+ 
+@@ -65,7 +65,7 @@
+ 		-rm -Rf $(ARCH);
+ 		cd JpegDir/JpgLless;make clean;
+ 		cd JpegDir/JpgLossy;make clean;
+-		cd DicomDir;make clean
++		cd DicomDir;#make clean
+ 		
+ 
+ .KEEP_STATE:

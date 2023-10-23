@@ -1,0 +1,35 @@
+Author: Mathieu Malaterre <malat@debian.org>
+Last-Update: 2013-10-28 18:12:20 +0100
+Descrtiption: Remove annoying warning from header
+
+--- Papyrus3.orig/PapyFileSystem3.h	2013-10-28 18:11:31.000000000 +0100
++++ Papyrus3/PapyFileSystem3.h	2013-10-28 18:11:54.000000000 +0100
+@@ -59,7 +59,7 @@
+ 
+ /* ------------------------- includes ------------------------------------------*/
+ 
+-/*#ifndef FILENAME83		/* this is for the normal machines ... */
++#ifndef FILENAME83		/* this is for the normal machines ... */
+ 
+ #ifndef PapyTypeDef3H
+ #include "PapyTypeDef3.h"
+@@ -68,8 +68,8 @@
+ #include "PapyError3.h"
+ #endif
+ 
+-/*#else				/* FILENAME83 defined for the DOS machines */
+-/*
++#else				/* FILENAME83 defined for the DOS machines */
++
+ #ifndef PapyTypeDef3H
+ #include "PAPYDEF3.h"
+ #endif
+@@ -78,7 +78,7 @@
+ #endif
+ 
+ #endif
+-*/
++
+ 
+ /* ------------------------- functions definition ------------------------------*/
+ 

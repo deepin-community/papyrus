@@ -1,5 +1,57 @@
-template-repository (1.0-1) unstable; urgency=medium
+papyrus (3.7.1+dfsg-5) unstable; urgency=medium
 
-  * Initial release
+  * Team upload.
+  * d/patches: Update minimal cmake version to 3.7
+  * d/rules: Expose a bit more warnings from the compilation
+  * d/patches: Remove register keyword from API
+  * d/control: Bump Std-Vers to 4.6.1 no changes needed
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Mathieu Malaterre <malat@debian.org>  Fri, 02 Sep 2022 15:42:26 +0200
+
+papyrus (3.7.1+dfsg-4) unstable; urgency=medium
+
+  * Standards-Version: 4.5.1 (routine-update)
+  * debhelper-compat 13 (routine-update)
+  * Add salsa-ci file (routine-update)
+  * Rules-Requires-Root: no (routine-update)
+
+ -- Andreas Tille <tille@debian.org>  Tue, 24 Nov 2020 10:10:44 +0100
+
+papyrus (3.7.1+dfsg-3) unstable; urgency=medium
+
+  * Add citation
+  * Homepage vanished - link to web archive
+  * Use fake watch file since SOurceForge repository vanished as well
+  * debhelper 11
+  * Point Vcs fields to salsa.debian.org
+  * Standards-Version: 4.2.1
+  * Delete unneeded get-orig-source target
+
+ -- Andreas Tille <tille@debian.org>  Thu, 20 Sep 2018 09:16:46 +0200
+
+papyrus (3.7.1+dfsg-2) unstable; urgency=medium
+
+  * Team upload.
+  * Re-enable pie, now that is the default, and gdcm builds
+    fine with it (Really closes: #837490)
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sun, 18 Jun 2017 22:24:57 +0200
+
+papyrus (3.7.1+dfsg-1) unstable; urgency=medium
+
+  * Move packaging to Git since several files need to be excluded from
+    upstream tarball
+  * Add myself to Uploaders since Mathieu left the team
+  * cme fix dpkg-control
+  * cme fix dpkg-copyright
+  * Build-Depends: cmake
+  * hardening=-pie
+    Closes: #837490
+
+ -- Andreas Tille <tille@debian.org>  Mon, 24 Oct 2016 12:29:54 +0200
+
+papyrus (3.7.1-1) unstable; urgency=low
+
+  * Initial release. (Closes: #728111)
+
+ -- Mathieu Malaterre <malat@debian.org>  Mon, 28 Oct 2013 16:29:59 +0100
